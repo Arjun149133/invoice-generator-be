@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Rubik&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Pretendard&display=swap"
+      rel="stylesheet"
+    />
+    <!-- ✅ Add this -->
+    <style type="text/css">
+      {{{styles}}}
+    </style>
+
+    <title>Invoice</title>
+  </head>
+  <body>
+    <div class="v9_3">
+      <div class="v9_4"></div>
+      <div class="v9_5"></div>
+      <span class="v9_6">Date : {{date}}</span>
+
+      <div class="v9_7">
+        <span class="v9_8">Name</span>
+        <div class="v9_9">
+          <span class="v9_10">{{user.username}}</span>
+        </div>
+      </div>
+
+      <div class="v9_11">
+        <span class="v9_12">{{user.email}}</span>
+      </div>
+
+      <div class="v9_13">
+        <div class="v9_14">
+          <span class="v9_15">Total Charges</span>
+          <span class="v9_16">${{totalAmount}}</span>
+        </div>
+        <div class="v9_17">
+          <span class="v9_18">GST (18%)</span>
+          <span class="v9_19">${{gstRounded}}</span>
+        </div>
+        <div class="v9_20">
+          <span class="v9_21">Total Amount</span>
+          <span class="v9_22">₹ {{totalPayable}}</span>
+        </div>
+      </div>
+
+      <div class="v9_23">
+        <span class="v9_24">
+          We are pleased to provide any further information you may require and
+          look forward to assisting with your next order. Rest assured, it will
+          receive our prompt and dedicated attention.
+        </span>
+      </div>
+
+      <div class="v9_25">
+        <span class="v9_26">Date: {{date}}</span>
+      </div>
+
+      <div class="v9_27">
+        <div class="v9_28">
+          <div class="v9_29"><span class="v9_30">Product</span></div>
+          <div class="v9_31"><span class="v9_32">Qty</span></div>
+          <div class="v9_33"><span class="v9_34">Rate</span></div>
+          <div class="v9_35"><span class="v9_36">Total Amount</span></div>
+        </div>
+
+        {{#each products}}
+        <div class="v9_37">
+          <span class="v9_38">{{this.name}}</span>
+          <span class="v9_39">{{this.qty}}</span>
+          <span class="v9_40">{{this.price}}</span>
+          <div class="v9_41">
+            <span class="v9_42">USD {{multiply this.price this.qty}}</span>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+
+      <div class="v9_61">
+        <span class="v9_62">INVOICE GENERATOR</span>
+        <span class="v9_63">Generated Invoice Summary</span>
+      </div>
+
+      <div class="v9_64">
+        <div class="v9_65">
+          <div class="v9_66"></div>
+          <div class="v9_67"></div>
+          <div class="v9_68"></div>
+        </div>
+        <div class="v9_69">
+          <span class="v9_70">Levitation</span>
+          <span class="v9_71">Infotech</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
