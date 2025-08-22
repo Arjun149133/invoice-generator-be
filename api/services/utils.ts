@@ -41,7 +41,7 @@ export const generatePdf = async (invoiceId: string) => {
     const template = hbs.compile(html);
     const content = template({ ...pdfData, styles: cssContent });
 
-    console.log("Generated HTML content for PDF:", content);
+    // console.log("Generated HTML content for PDF:", content);
     const pdfBuffer = await htmlPDF.create(content);
 
     return pdfBuffer;
