@@ -46,13 +46,18 @@ router.post("/login", async (req, res) => {
       where: { email },
     });
 
+    if (!user) {
+      res.status(404).json({ error: "User not found" });
+      return;
+    }
+
     const isPasswordValid = await bcrypt.compare(password, user.password);
 
     if (!user || !isPasswordValid) {
       return res.status(401).json({ error: "Invalid email or password" });
     }
 
-    const token = await jwt.sign({ userId: user.id }, process.env.JWT_SECRET);
+    const token = await jwt.sign({ userId: user.id }, process.env.JWT_SECRET!);
 
     res.status(200).json({ token });
   } catch (error) {

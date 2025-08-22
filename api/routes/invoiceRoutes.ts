@@ -9,7 +9,7 @@ router.post("/create", authMiddleware, async (req, res) => {
     console.log("user", req.userId);
     const invoice = await prisma.invoice.create({
       data: {
-        userId: req.userId,
+        userId: req.userId!,
         totalAmount: 0,
         gst: 0,
       },
@@ -45,7 +45,7 @@ router.post("/add-product", authMiddleware, async (req, res) => {
         rate,
         invoiceId,
         price: quantity * rate,
-        userId: req.userId,
+        userId: req.userId!,
       },
     });
 

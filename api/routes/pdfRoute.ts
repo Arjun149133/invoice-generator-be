@@ -11,6 +11,11 @@ router.post("/", authMiddleware, async (req, res) => {
     console.log("invoicee:", invoiceId);
     const pdfBuffer = await generatePdf(invoiceId);
 
+    if (!pdfBuffer) {
+      res.status(500).send("Failed to generate PDF");
+      return;
+    }
+
     res.set({
       "Content-Type": "application/pdf",
       "Content-Disposition": `attachment; filename=invoice-${invoiceId}.pdf`,

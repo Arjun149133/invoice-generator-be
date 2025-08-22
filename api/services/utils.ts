@@ -11,6 +11,10 @@ export const generatePdf = async (invoiceId: string) => {
   hbs.registerHelper("multiply", (a, b) => a * b);
   const invoiceData = await getInvoiceData(invoiceId);
 
+  if (!invoiceData) {
+    return;
+  }
+
   const pdfData = {
     date: "21/08/25",
     user: {
