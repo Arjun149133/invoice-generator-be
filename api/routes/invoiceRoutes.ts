@@ -1,10 +1,10 @@
-import { Router } from "express";
+import { Request, Response, Router } from "express";
 import prisma from "../config/db";
 import { authMiddleware } from "../middlewares/authMiddleware";
 
 const router = Router();
 
-router.post("/create", authMiddleware, async (req, res) => {
+router.post("/create", authMiddleware, async (req: Request, res: Response) => {
   try {
     console.log("user", req.userId);
     const invoice = await prisma.invoice.create({

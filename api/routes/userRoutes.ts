@@ -1,11 +1,11 @@
-import { Router } from "express";
+import { Request, Response, Router } from "express";
 import prisma from "../config/db";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 const router = Router();
 
-router.post("/register", async (req, res) => {
+router.post("/register", async (req: Request, res: Response) => {
   const { username, email, password } = req.body;
 
   try {

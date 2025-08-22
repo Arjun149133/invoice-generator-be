@@ -1,10 +1,10 @@
-import { Router } from "express";
+import { Request, Response, Router } from "express";
 import { generatePdf } from "../services/utils";
 import { authMiddleware } from "../middlewares/authMiddleware";
 
 const router = Router();
 
-router.post("/", authMiddleware, async (req, res) => {
+router.post("/", authMiddleware, async (req: Request, res: Response) => {
   const { invoiceId } = req.body;
 
   try {
