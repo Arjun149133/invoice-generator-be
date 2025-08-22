@@ -9,6 +9,10 @@ const port = 3001;
 app.use(express.json());
 app.use(cors());
 
+app.get("/hello", (req, res) => {
+  res.send("Hello World!");
+});
+
 app.use("/api/auth", authRouter);
 app.use("/api/invoice", invoiceRouter);
 app.use("/api/generate-pdf", pdfRouter);
